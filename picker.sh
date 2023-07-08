@@ -12,6 +12,7 @@ echo ""
 fw_base="git@github.com:LineageOS-oops/android_frameworks_base.git"
 fw_av="git@github.com:LineageOS-oops/android_frameworks_av.git"
 system_core="git@github.com:LineageOS-oops/android_system_core.git"
+build_make="git@github.com:LineageOS-oops/android_build.git"
 
 # fw_base
 cd $LOS_ROOT/frameworks/base
@@ -27,5 +28,10 @@ git cherry-pick ca7046d20642d0391cb6d97f81d857e1eeaa5567
 cd $LOS_ROOT/system/core
 git fetch $system_core --depth=3
 git cherry-pick d8937c895531918159b5b6a7dbdd87e8c78a2269^..cf519bfea29ed26c4c2b25da5013f59cc6d10c4c
+
+# build_make
+cd $LOS_ROOT/build/make
+git fetch $build_make --depth=6
+git cherry-pick c5188a1269cb76f4d1d00ee26a44db17bac6ca88^..a24618f78890ac8133adb5be19502e999b0ab56f
 
 exit 0
