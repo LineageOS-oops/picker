@@ -34,7 +34,7 @@ git cherry-pick d8937c895531918159b5b6a7dbdd87e8c78a2269^..cf519bfea29ed26c4c2b2
 
 # build_make
 cd $LOS_ROOT/build/make
-git fetch $build_make --depth=6
-git cherry-pick c5188a1269cb76f4d1d00ee26a44db17bac6ca88^..a24618f78890ac8133adb5be19502e999b0ab56f $CHERRYPICK_FLAGS
+git fetch $build_make --depth=7
+git cherry-pick cfd94035be02e4ad0174b199e7303ffa2f6eaf0c^..2d5449fd4fe6041d000dea3f4f14670686ea6682 $CHERRYPICK_FLAGS
 
 exit 0
