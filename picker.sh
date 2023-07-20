@@ -24,8 +24,8 @@ cd $LOS_ROOT/frameworks/base
 git restore --staged .
 git restore .
 if [ $2 != "r" ]; then
-    git fetch $fw_base --depth 10
-    git cherry-pick 71c7964f56060b02b8030ed2ee84df09c9022222^..d6a41091f63334c0ad715a8a1a4e4ed9de1778d9 $CHERRYPICK_FLAGS
+    git fetch $fw_base --depth 11
+    git cherry-pick 9437eaed00ef69745d33dc4c4bbd28d72c2133fd^..9ad888da5550f3811877d9fa0e9526f4bfcb70de $CHERRYPICK_FLAGS
 fi
 
 # fw_av
@@ -53,15 +53,6 @@ git restore .
 if [ $2 != "r" ]; then
     git fetch $build_make --depth=7
     git cherry-pick cfd94035be02e4ad0174b199e7303ffa2f6eaf0c^..2d5449fd4fe6041d000dea3f4f14670686ea6682 $CHERRYPICK_FLAGS
-fi
-
-# hw_oplus
-cd $LOS_ROOT/hardware/oplus
-git restore --staged .
-git restore .
-if [ $2 != "r" ]; then
-    git fetch $hw_oplus --depth=2
-    git cherry-pick aea10112c4768f91729af9f1f6d174167a8a9b7f $CHERRYPICK_FLAGS
 fi
 
 exit 0
