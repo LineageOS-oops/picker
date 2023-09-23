@@ -62,7 +62,7 @@ git restore --staged .
 git restore .
 if [ $2 != "r" ]; then
     git fetch $vnd_aospa --depth 2
-    git cherry-pick 5a27c1529322f07bd495fab636669005bef61177 $CHERRYPICK_FLAGS
+    git cherry-pick 367681486b165de2f0c2cd4417aa3f91761b91d8 $CHERRYPICK_FLAGS
 fi
 
 # vnd_ggl_pxl
