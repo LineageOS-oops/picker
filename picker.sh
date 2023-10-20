@@ -26,7 +26,7 @@ git restore --staged .
 git restore .
 if [ $2 != "r" ]; then
     git fetch $fw_base --depth 4
-    git cherry-pick 6ac3dd6a0e7d8a085c002412321f693180356bb7^..347c0718b5b68c94061959f0bf25e56258c4f502 $CHERRYPICK_FLAGS
+    git cherry-pick 6e32c81d1356cdbb730a242dfb300ba9c1fb1ab2^..ee1c11e6854f00f3e21e24e77f7e2faaf1735f97 $CHERRYPICK_FLAGS
 fi
 
 # fw_av
@@ -34,8 +34,8 @@ cd $AOSPA_ROOT/frameworks/av
 git restore --staged .
 git restore .
 if [ $2 != "r" ]; then
-    git fetch $fw_av --depth=2
-    git cherry-pick 3de2ead3133c12ac4750af7c4bc469fb18fd55dd $CHERRYPICK_FLAGS
+    git fetch $fw_av --depth=3
+    git cherry-pick e7bf4a92805c5855037bcac0ab44cb40a55b90e8^..2ddbf0b042f3d7c5bc2c70d34114715242686ce6 $CHERRYPICK_FLAGS
 fi
 
 # system_core
@@ -44,7 +44,7 @@ git restore --staged .
 git restore .
 if [ $2 != "r" ]; then
     git fetch $system_core --depth=2
-    git cherry-pick 1d7f40f2ac51af2ec89397e2cbe437c746a9e0bf $CHERRYPICK_FLAGS
+    git cherry-pick 4cce6a6e8ba08ee2d86054b2c506868e51f4c211 $CHERRYPICK_FLAGS
 fi
 
 # build_make
@@ -53,7 +53,7 @@ git restore --staged .
 git restore .
 if [ $2 != "r" ]; then
     git fetch $build_make --depth=6
-    git cherry-pick e4b73da62eda637cc71f17191b2e37d105357c06^..36b547cc6eaaacc4593505c38c9becce454daf67 $CHERRYPICK_FLAGS
+    git cherry-pick caa97fd4cfa3ac461516e5378b6e93ad7219fe8d^..819a61702911932b8304fdab8741df1e775e3f60 $CHERRYPICK_FLAGS
 fi
 
 # vnd_aospa
@@ -61,8 +61,8 @@ cd $AOSPA_ROOT/vendor/aospa
 git restore --staged .
 git restore .
 if [ $2 != "r" ]; then
-    git fetch $vnd_aospa --depth 2
-    git cherry-pick 367681486b165de2f0c2cd4417aa3f91761b91d8 $CHERRYPICK_FLAGS
+    git fetch $vnd_aospa --depth 3
+    git cherry-pick 21b0cbdc80ccc636833771200569268b1a32b26f^..317cc51212cd6aeed0afec94a8b0a5b07dac154d $CHERRYPICK_FLAGS
 fi
 
 # vnd_ggl_pxl
@@ -71,7 +71,7 @@ git restore --staged .
 git restore .
 if [ $2 != "r" ]; then
     git fetch $vnd_ggl_pxl --depth 2
-    git cherry-pick c9addcc7e7c2126a58ce18628edbb3211c82d26e $CHERRYPICK_FLAGS
+    git cherry-pick e3bb3f7708137a929d1427ad75187f50145a4cca $CHERRYPICK_FLAGS
 fi
 
 exit 0
