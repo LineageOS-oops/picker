@@ -25,26 +25,8 @@ cd $AOSPA_ROOT/frameworks/base
 git restore --staged .
 git restore .
 if [ $2 != "r" ]; then
-    git fetch $fw_base --depth 4
-    git cherry-pick 6e32c81d1356cdbb730a242dfb300ba9c1fb1ab2^..ee1c11e6854f00f3e21e24e77f7e2faaf1735f97 $CHERRYPICK_FLAGS
-fi
-
-# fw_av
-cd $AOSPA_ROOT/frameworks/av
-git restore --staged .
-git restore .
-if [ $2 != "r" ]; then
-    git fetch $fw_av --depth=3
-    git cherry-pick e7bf4a92805c5855037bcac0ab44cb40a55b90e8^..2ddbf0b042f3d7c5bc2c70d34114715242686ce6 $CHERRYPICK_FLAGS
-fi
-
-# system_core
-cd $AOSPA_ROOT/system/core
-git restore --staged .
-git restore .
-if [ $2 != "r" ]; then
-    git fetch $system_core --depth=2
-    git cherry-pick 4cce6a6e8ba08ee2d86054b2c506868e51f4c211 $CHERRYPICK_FLAGS
+    git fetch $fw_base --depth 3
+    git cherry-pick 60032dc6e08a72e728d868e4704198387b07a3dc^..8c666053e7ccc57e965a7308fc95e6c2c82ad6ac $CHERRYPICK_FLAGS
 fi
 
 # build_make
@@ -61,8 +43,8 @@ cd $AOSPA_ROOT/vendor/aospa
 git restore --staged .
 git restore .
 if [ $2 != "r" ]; then
-    git fetch $vnd_aospa --depth 3
-    git cherry-pick 21b0cbdc80ccc636833771200569268b1a32b26f^..317cc51212cd6aeed0afec94a8b0a5b07dac154d $CHERRYPICK_FLAGS
+    git fetch $vnd_aospa --depth 2
+    git cherry-pick 436f85a04c00c8b5d98f11e3d948b35cd96e8167 $CHERRYPICK_FLAGS
 fi
 
 # vnd_ggl_pxl
@@ -71,7 +53,7 @@ git restore --staged .
 git restore .
 if [ $2 != "r" ]; then
     git fetch $vnd_ggl_pxl --depth 2
-    git cherry-pick e3bb3f7708137a929d1427ad75187f50145a4cca $CHERRYPICK_FLAGS
+    git cherry-pick 0bef9c78df422565e680e77645c23caa9eca4f9b $CHERRYPICK_FLAGS
 fi
 
 exit 0
