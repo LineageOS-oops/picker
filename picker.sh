@@ -42,15 +42,17 @@ fi
 cd $AOSPA_ROOT/vendor/aospa
 git restore --staged .
 git restore .
+rm -rf products/oneplus9rt/
 if [ $2 != "r" ]; then
     git fetch $vnd_aospa --depth 2
-    git cherry-pick 436f85a04c00c8b5d98f11e3d948b35cd96e8167 $CHERRYPICK_FLAGS
+    git cherry-pick 9675588996a5f28a9c715ec69adbb1378385301f $CHERRYPICK_FLAGS
 fi
 
 # vnd_ggl_pxl
 cd $AOSPA_ROOT/vendor/google/pixel
 git restore --staged .
 git restore .
+rm proprietary/product/etc/sysconfig/pixel_2016_exclusive.xml
 if [ $2 != "r" ]; then
     git fetch $vnd_ggl_pxl --depth 2
     git cherry-pick 0bef9c78df422565e680e77645c23caa9eca4f9b $CHERRYPICK_FLAGS
