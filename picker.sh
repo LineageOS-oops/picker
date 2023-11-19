@@ -44,8 +44,8 @@ git restore --staged .
 git restore .
 rm -rf products/oneplus9rt/
 if [ $2 != "r" ]; then
-    git fetch $vnd_aospa --depth 2
-    git cherry-pick 9675588996a5f28a9c715ec69adbb1378385301f $CHERRYPICK_FLAGS
+    git fetch $vnd_aospa --depth 7
+    git cherry-pick 1e52abd5caf951c7fedaebf76d3aadd22c128065^..c42c738606b688acd4f27abb57571bc40259a9ea $CHERRYPICK_FLAGS
 fi
 
 # vnd_ggl_pxl
