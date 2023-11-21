@@ -41,6 +41,7 @@ fi
 # vnd_aospa
 cd $AOSPA_ROOT/vendor/aospa
 git restore --staged .
+rm -rf fonts/ overlay/
 git restore .
 rm -rf products/oneplus9rt/
 if [ $2 != "r" ]; then
