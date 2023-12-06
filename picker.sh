@@ -45,8 +45,8 @@ rm -rf fonts/ overlay/
 git restore .
 rm -rf products/oneplus9rt/
 if [ $2 != "r" ]; then
-    git fetch $vnd_aospa --depth 7
-    git cherry-pick 1e52abd5caf951c7fedaebf76d3aadd22c128065^..c42c738606b688acd4f27abb57571bc40259a9ea $CHERRYPICK_FLAGS
+    git fetch $vnd_aospa --depth 8
+    git cherry-pick d06f0522e52b4f40c6acdde3e7adda58ccc4d044^..fe3d7d2ff5f639d15d3e89d4b32d72c3c73a08b7 $CHERRYPICK_FLAGS
 fi
 
 # vnd_ggl_pxl
