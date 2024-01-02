@@ -26,7 +26,7 @@ git restore --staged .
 git restore .
 if [ $2 != "r" ]; then
     git fetch $fw_base --depth 3
-    git cherry-pick 018b919eb883c940d4239cfe129d01147d318008^..c367dd1d51bd8843b8224996f3589b6a061c8c83 $CHERRYPICK_FLAGS
+    git cherry-pick a5f74433b043d2f5e232e25db4a737e8fbe85a62^..963d03be48e262ccfaf214b4c3d0afc9784778a1 $CHERRYPICK_FLAGS
 fi
 
 # build_make
@@ -45,8 +45,8 @@ rm -rf fonts/ overlay/
 git restore .
 rm -rf products/oneplus9rt/
 if [ $2 != "r" ]; then
-    git fetch $vnd_aospa --depth 7
-    git cherry-pick bae465896526828ac3457230d35deb0d8529b1dc^..02ab204007bdec2b4ebb465982349ed90f604e10 $CHERRYPICK_FLAGS
+    git fetch $vnd_aospa --depth 6
+    git cherry-pick 57c14fd37feefec242d74d85ae84d42501deef7e^..f24c0d860ff7514bb7dfc4cc2f3994c0fe503754 $CHERRYPICK_FLAGS
 fi
 
 # vnd_ggl_pxl
