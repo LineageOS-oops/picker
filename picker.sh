@@ -26,7 +26,7 @@ git restore --staged .
 git restore .
 if [ $2 != "r" ]; then
     git fetch $fw_base --depth 3
-    git cherry-pick 343a25b7c9bab4dccd0756ad1b2b4afb676e4bf8^..c4a56870d1c76252b7fe7881eeb30969c3d30563 $CHERRYPICK_FLAGS
+    git cherry-pick e92f4ab4bfe0ff8fa3fc0fb76393c9a351a50309^..7795a388c13625098990c2a25529e21e02c054b4 $CHERRYPICK_FLAGS
 fi
 
 # build_make
