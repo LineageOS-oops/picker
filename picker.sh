@@ -26,8 +26,8 @@ rm core/java/com/android/internal/util/PropImitationHooks.java
 rm core/res/res/values/custom_config.xml
 rm core/res/res/values/custom_symbols.xml
 if [ $2 != "r" ]; then
-    git fetch $fw_base --depth 6
-    git cherry-pick 4b676a89d79aabe2d9fcd701f8fbe1db9502d9c6^..3cce295b19356f8407343b6be95ce73657f05fca $CHERRYPICK_FLAGS
+    git fetch $fw_base --depth 7
+    git cherry-pick ebc99a25068fca03f708bd49f78fd8e1b5a89747^..cda224e13595685bfc7391f29c5970053a3a0461 $CHERRYPICK_FLAGS
 fi
 
 # fw_av
