@@ -36,7 +36,7 @@ git restore --staged .
 git restore .
 if [ $2 != "r" ]; then
     git fetch $fw_av --depth 2
-    git cherry-pick bd69f8347be6c72a3ccb3bcfcec78d2422b999ea $CHERRYPICK_FLAGS
+    git cherry-pick e0f1e4b623022d705d44cb21c568d0d4dfe702cb $CHERRYPICK_FLAGS
 fi
 
 # system_core
