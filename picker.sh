@@ -35,8 +35,8 @@ cd $SOURCE_ROOT/frameworks/av
 git restore --staged .
 git restore .
 if [ $2 != "r" ]; then
-    git fetch $fw_av --depth 2
-    git cherry-pick e0f1e4b623022d705d44cb21c568d0d4dfe702cb $CHERRYPICK_FLAGS
+    git fetch $fw_av --depth 3
+    git cherry-pick cf6f185cd716aa8c06a4aad2f315e3c0cfe2db63^..2db507146effbbc0005ffcb687de98132e3558a4 $CHERRYPICK_FLAGS
 fi
 
 # system_core
