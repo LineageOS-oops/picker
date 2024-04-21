@@ -17,6 +17,7 @@ fw_base="git@github.com:LineageOS-oops/android_frameworks_base.git"
 fw_av="git@github.com:LineageOS-oops/android_frameworks_av.git"
 system_core="git@github.com:LineageOS-oops/android_system_core.git"
 build_make="git@github.com:LineageOS-oops/android_build.git"
+hw_interfaces="git@github.com:LineageOS-oops/android_hardware_interfaces.git"
 
 # fw_base
 cd $SOURCE_ROOT/frameworks/base
@@ -55,6 +56,15 @@ git restore .
 if [ $2 != "r" ]; then
     git fetch $build_make --depth=7
     git cherry-pick bf2083c16b051e9913da962356a9fc137e109f5b^..b49e09f068e60da8e588f50daecf9394b2c518c6 $CHERRYPICK_FLAGS
+fi
+
+# hw_interfaces
+cd $SOURCE_ROOT/hardware/interfaces
+git restore --staged .
+git restore .
+if [ $2 != "r" ]; then
+    git fetch $hw_interfaces --depth=2
+    git cherry-pick ca2411918b26a3647735f2664d3137f7ca163c8a $CHERRYPICK_FLAGS
 fi
 
 exit 0
