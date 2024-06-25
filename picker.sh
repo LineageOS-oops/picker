@@ -28,7 +28,7 @@ rm core/res/res/values/custom_config.xml
 rm core/res/res/values/custom_symbols.xml
 if [ $2 != "r" ]; then
     git fetch $fw_base --depth 7
-    git cherry-pick ebc99a25068fca03f708bd49f78fd8e1b5a89747^..cda224e13595685bfc7391f29c5970053a3a0461 $CHERRYPICK_FLAGS
+    git cherry-pick d57cd908d01b8f898edc1c6b47d88bef7305098b^..8e6c7f9a709d9b9725aeb6755402ca96dd54e055 $CHERRYPICK_FLAGS
 fi
 
 # fw_av
