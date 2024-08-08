@@ -28,7 +28,7 @@ rm core/res/res/values/custom_config.xml
 rm core/res/res/values/custom_symbols.xml
 if [ $2 != "r" ]; then
     git fetch $fw_base --depth 7
-    git cherry-pick d57cd908d01b8f898edc1c6b47d88bef7305098b^..8e6c7f9a709d9b9725aeb6755402ca96dd54e055 $CHERRYPICK_FLAGS
+    git cherry-pick d57cd908d01b8f898edc1c6b47d88bef7305098b^..3fa3871b9ed598cdd0a40e9b0a1a3201cf3f01cb $CHERRYPICK_FLAGS
 fi
 
 # fw_av
@@ -37,7 +37,7 @@ git restore --staged .
 git restore .
 if [ $2 != "r" ]; then
     git fetch $fw_av --depth 3
-    git cherry-pick cf6f185cd716aa8c06a4aad2f315e3c0cfe2db63^..2db507146effbbc0005ffcb687de98132e3558a4 $CHERRYPICK_FLAGS
+    git cherry-pick cf6f185cd716aa8c06a4aad2f315e3c0cfe2db63 $CHERRYPICK_FLAGS
 fi
 
 # system_core
@@ -59,12 +59,12 @@ if [ $2 != "r" ]; then
 fi
 
 # hw_interfaces
-cd $SOURCE_ROOT/hardware/interfaces
-git restore --staged .
-git restore .
-if [ $2 != "r" ]; then
-    git fetch $hw_interfaces --depth=2
-    git cherry-pick ca2411918b26a3647735f2664d3137f7ca163c8a $CHERRYPICK_FLAGS
-fi
+#cd $SOURCE_ROOT/hardware/interfaces
+#git restore --staged .
+#git restore .
+#if [ $2 != "r" ]; then
+#    git fetch $hw_interfaces --depth=2
+#    git cherry-pick ca2411918b26a3647735f2664d3137f7ca163c8a $CHERRYPICK_FLAGS
+#fi
 
 exit 0
