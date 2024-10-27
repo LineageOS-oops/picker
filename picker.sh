@@ -26,9 +26,13 @@ git restore .
 rm core/java/com/android/internal/util/PropImitationHooks.java
 rm core/res/res/values/custom_config.xml
 rm core/res/res/values/custom_symbols.xml
+rm core/java/com/android/internal/util/IKeyboxProvider.java
+rm core/java/com/android/internal/util/KeyProviderManager.java
+rm core/java/com/android/internal/util/KeyboxImitationHooks.java
 if [ $2 != "r" ]; then
-    git fetch $fw_base --depth 7
-    git cherry-pick b3ea5572ee5319553b77779600839b9b950ed46b^..789c432fdf5796a15fa83f234f0fbe7b023ed134 $CHERRYPICK_FLAGS
+    git fetch $fw_base --depth 10
+    git cherry-pick 22a361654f44da5ae068428da6b305cb5cc603a9^..e758c91e554d1abc4ef76a9ac82f3eb3d3726d26 $CHERRYPICK_FLAGS
+    git cherry-pick 9963f8e48450dabb2d5e624d1e3df0e030d8cdd7^..4e570301b64d1605b49ba60619e9796d0e9c3d60 $CHERRYPICK_FLAGS
 fi
 
 # fw_av
@@ -37,7 +41,7 @@ git restore --staged .
 git restore .
 if [ $2 != "r" ]; then
     git fetch $fw_av --depth 3
-    git cherry-pick cf6f185cd716aa8c06a4aad2f315e3c0cfe2db63 $CHERRYPICK_FLAGS
+    git cherry-pick 872e6b8ba168245420d4e63bedd2357bbf40b7ca $CHERRYPICK_FLAGS
 fi
 
 # system_core
@@ -46,7 +50,7 @@ git restore --staged .
 git restore .
 if [ $2 != "r" ]; then
     git fetch $system_core --depth 2
-    git cherry-pick 3525250775043a2d861fd5814525e7961ba0643b $CHERRYPICK_FLAGS
+    git cherry-pick ad0ff917f31b56e3606f5f9617e7ded6b69b7ab9 $CHERRYPICK_FLAGS
 fi
 
 # build_make
@@ -55,7 +59,7 @@ git restore --staged .
 git restore .
 if [ $2 != "r" ]; then
     git fetch $build_make --depth=7
-    git cherry-pick bf2083c16b051e9913da962356a9fc137e109f5b^..b49e09f068e60da8e588f50daecf9394b2c518c6 $CHERRYPICK_FLAGS
+    git cherry-pick 6053ad52c17d54063a0a70255c783e6ec947f3a9^..7a5b3ecf3f6eddb213d1fe3d3ca4f72bd7594491 $CHERRYPICK_FLAGS
 fi
 
 # hw_interfaces
@@ -67,4 +71,4 @@ fi
 #    git cherry-pick ca2411918b26a3647735f2664d3137f7ca163c8a $CHERRYPICK_FLAGS
 #fi
 
-exit 0
+#exit 0
