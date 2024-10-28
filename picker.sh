@@ -59,7 +59,7 @@ git restore --staged .
 git restore .
 if [ $2 != "r" ]; then
     git fetch $build_make --depth=7
-    git cherry-pick 6053ad52c17d54063a0a70255c783e6ec947f3a9^..7a5b3ecf3f6eddb213d1fe3d3ca4f72bd7594491 $CHERRYPICK_FLAGS
+    git cherry-pick 6053ad52c17d54063a0a70255c783e6ec947f3a9^..9a96904ee59f02bad4566c5328b113d0d14919ef $CHERRYPICK_FLAGS
 fi
 
 # hw_interfaces
@@ -71,4 +71,4 @@ fi
 #    git cherry-pick ca2411918b26a3647735f2664d3137f7ca163c8a $CHERRYPICK_FLAGS
 #fi
 
-#exit 0
+exit 0
