@@ -15,14 +15,17 @@ CHERRYPICK_FLAGS="--no-commit"
 # Repositories
 build_soong="git@github.com:LineageOS-oops/android_build_soong.git"
 fw_av="git@github.com:LineageOS-oops/android_frameworks_av.git"
+fw_base="git@github.com:LineageOS-oops/android_frameworks_base.git"
+system_core="git@github.com:LineageOS-oops/android_system_core.git"
+device_lineage_sepolicy="git@github.com:LineageOS-oops/android_device_lineage_sepolicy.git"
 
 # build_soong
 cd $SOURCE_ROOT/build/soong
 git restore --staged .
 git restore .
 if [ $2 != "r" ]; then
-    git fetch $build_soong --depth 2
-    git cherry-pick 1c92461e564df35747ac99aabaaea18cc37bf7a3 $CHERRYPICK_FLAGS
+    git fetch $build_soong --depth 3
+    git cherry-pick d898f2b171511347b0d9bd1803f92251280a7c94^..b457dea01a8ddc6d9c0739d42c41aa205b1be77f $CHERRYPICK_FLAGS
 fi
 
 # fw_av
@@ -30,8 +33,39 @@ cd $SOURCE_ROOT/frameworks/av
 git restore --staged .
 git restore .
 if [ $2 != "r" ]; then
-    git fetch $fw_av --depth 3
-    git cherry-pick f453e2d4925b282e7c33ce3b878d8938af4b8fc3^..24db63741bd6ac80b704bca023262a9631a2962d $CHERRYPICK_FLAGS
+    git fetch $fw_av --depth 4
+    git cherry-pick dc3db347660b4acc6a11e37f6646b9887d842b8d^..ea30e6908eaed1756e8d889e2642993c201e390d $CHERRYPICK_FLAGS
 fi
 
-exit 0
+# fw_base
+cd $SOURCE_ROOT/frameworks/base
+git restore --staged .
+git restore .
+rm -rf services/core/java/com/android/server/gmscompat/
+rm -rf core/java/com/android/internal/gmscompat/
+rm -rf core/java/com/oplus/
+if [ $2 != "r" ]; then
+    git fetch $fw_base --depth 11
+    git cherry-pick ea8a7e27ab8d6bfd81a613c0f90a1d2bb78314c6^..ba04f514e2224722b6ba45c5ce4f8fbe4e5c4ac6 $CHERRYPICK_FLAGS
+fi
+
+# system_core
+cd $SOURCE_ROOT/system/core
+git restore --staged .
+git restore .
+if [ $2 != "r" ]; then
+    git fetch $system_core --depth 5
+    git cherry-pick afaa524a0bd23bf39a8544b4c135802b1ede907c^..4df3c935da24b6cd2f5c722361e63cc4209a2b78 $CHERRYPICK_FLAGS
+fi
+
+# device_lineage_sepolicy
+cd $SOURCE_ROOT/device/lineage/sepolicy
+git restore --staged .
+git restore .
+rm common/private/gmscore_app.te
+if [ $2 != "r" ]; then
+    git fetch $device_lineage_sepolicy --depth 2
+    git cherry-pick 0ff869d05e15c8e31a4199fe9fda87ed1cc48625 $CHERRYPICK_FLAGS
+fi
+
+#exit 0
