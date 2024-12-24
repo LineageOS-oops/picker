@@ -45,8 +45,8 @@ rm -rf services/core/java/com/android/server/gmscompat/
 rm -rf core/java/com/android/internal/gmscompat/
 rm -rf core/java/com/oplus/
 if [ $2 != "r" ]; then
-    git fetch $fw_base --depth 11
-    git cherry-pick ea8a7e27ab8d6bfd81a613c0f90a1d2bb78314c6^..ba04f514e2224722b6ba45c5ce4f8fbe4e5c4ac6 $CHERRYPICK_FLAGS
+    git fetch $fw_base --depth 12
+    git cherry-pick 4bfdd06f5916393f16a56b29f5b5e30729f89eb2^..7b1d27d003f392156c89dc61f26b844dc8cf71c8 $CHERRYPICK_FLAGS
 fi
 
 # system_core
