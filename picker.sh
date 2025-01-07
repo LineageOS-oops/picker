@@ -18,6 +18,7 @@ fw_av="git@github.com:LineageOS-oops/android_frameworks_av.git"
 fw_base="git@github.com:LineageOS-oops/android_frameworks_base.git"
 system_core="git@github.com:LineageOS-oops/android_system_core.git"
 device_lineage_sepolicy="git@github.com:LineageOS-oops/android_device_lineage_sepolicy.git"
+audio="git@github.com:LineageOS-oops/android_hardware_qcom_audio.git"
 
 # build_soong
 cd $SOURCE_ROOT/build/soong
@@ -66,6 +67,17 @@ rm common/private/gmscore_app.te
 if [ $2 != "r" ]; then
     git fetch $device_lineage_sepolicy --depth 2
     git cherry-pick 0ff869d05e15c8e31a4199fe9fda87ed1cc48625 $CHERRYPICK_FLAGS
+fi
+
+# audio
+cd $SOURCE_ROOT/hardware/qcom-caf/sm8350/audio
+git restore --staged .
+git restore .
+rm hal/audio_hw_lvacfs.*
+rm hal/audio_hw_lvimfs.*
+if [ $2 != "r" ]; then
+    git fetch $audio --depth 3
+    git cherry-pick afab4823bae19e93fa7b0903152254d15a37171a^..c0bccfb386e9f96abf19485dd29be509ff709432 $CHERRYPICK_FLAGS
 fi
 
 #exit 0
