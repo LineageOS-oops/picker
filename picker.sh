@@ -70,14 +70,14 @@ if [ $2 != "r" ]; then
 fi
 
 # audio
-cd $SOURCE_ROOT/hardware/qcom-caf/sm8350/audio
-git restore --staged .
-git restore .
-rm hal/audio_hw_lvacfs.*
-rm hal/audio_hw_lvimfs.*
-if [ $2 != "r" ]; then
-    git fetch $audio --depth 3
-    git cherry-pick afab4823bae19e93fa7b0903152254d15a37171a^..c0bccfb386e9f96abf19485dd29be509ff709432 $CHERRYPICK_FLAGS
-fi
+#cd $SOURCE_ROOT/hardware/qcom-caf/sm8350/audio
+#git restore --staged .
+#git restore .
+#rm hal/audio_hw_lvacfs.*
+#rm hal/audio_hw_lvimfs.*
+#if [ $2 != "r" ]; then
+#    git fetch $audio --depth 3
+#    git cherry-pick afab4823bae19e93fa7b0903152254d15a37171a^..c0bccfb386e9f96abf19485dd29be509ff709432 $CHERRYPICK_FLAGS
+#fi
 
 #exit 0
