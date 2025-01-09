@@ -19,6 +19,7 @@ fw_base="git@github.com:LineageOS-oops/android_frameworks_base.git"
 system_core="git@github.com:LineageOS-oops/android_system_core.git"
 device_lineage_sepolicy="git@github.com:LineageOS-oops/android_device_lineage_sepolicy.git"
 audio="git@github.com:LineageOS-oops/android_hardware_qcom_audio.git"
+lineage_overlays="git@github.com:LineageOS-oops/android_packages_overlays_Lineage.git"
 
 # build_soong
 cd $SOURCE_ROOT/build/soong
@@ -42,12 +43,12 @@ fi
 cd $SOURCE_ROOT/frameworks/base
 git restore --staged .
 git restore .
-rm -rf services/core/java/com/android/server/gmscompat/
-rm -rf core/java/com/android/internal/gmscompat/
 rm -rf core/java/com/oplus/
+rm core/res/res/values/custom_*
+rm core/java/com/android/internal/util/PropImitationHooks.java
 if [ $2 != "r" ]; then
-    git fetch $fw_base --depth 12
-    git cherry-pick 4bfdd06f5916393f16a56b29f5b5e30729f89eb2^..7b1d27d003f392156c89dc61f26b844dc8cf71c8 $CHERRYPICK_FLAGS
+    git fetch $fw_base --depth 34
+    git cherry-pick bc496b0740898b0bf94a33f949fd688678b58140^..998ab527922a644adc4a3d30d923da98ce0ef080 $CHERRYPICK_FLAGS
 fi
 
 # system_core
@@ -67,6 +68,19 @@ rm common/private/gmscore_app.te
 if [ $2 != "r" ]; then
     git fetch $device_lineage_sepolicy --depth 2
     git cherry-pick 0ff869d05e15c8e31a4199fe9fda87ed1cc48625 $CHERRYPICK_FLAGS
+fi
+
+# lineage_overlays
+cd $SOURCE_ROOT/packages/overlays/Lineage/
+git restore --staged .
+git restore .
+rm -rf fonts/FontHarmonySansOverlay
+rm -rf fonts/FontInterOverlay
+rm -rf fonts/FontOnePlusSansOverlay
+rm -rf fonts/FontOppoSansOverlay
+if [ $2 != "r" ]; then
+    git fetch $lineage_overlays --depth 2
+    git cherry-pick d1265430c4439beb8c4f14fb44959b8a962e83b7 $CHERRYPICK_FLAGS
 fi
 
 # audio
